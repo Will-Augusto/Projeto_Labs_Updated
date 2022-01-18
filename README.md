@@ -1,15 +1,23 @@
 # Projeto_Labs_Updated
 
 Instalação
+Após clonar o repositorio..
 
-$ npm init
+$ npm install
 
 ## Rodando a aplicação
-Para rodar a apliação, é necessário subir um container do docker com o comando docker-compose up -d
+Para rodar a apliação, é necessário usar compose up no docker
 É necessário acessar a rota http://localhost:8080/ do Adminer e criar o banco de dados.
 
 #development
 $ npm run dev
+
+
+```bash
+## Migration
+ - Para rodar a migration é preciso usar o comando npx sequelize-cli db:migrate
+ - Para parar a migration poderá ser usado o comando npx sequelize-cli db:migrate:undo
+
 
 ```bash
 ## Servidor

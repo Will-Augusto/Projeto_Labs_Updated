@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "teste"
+      MYSQL_PASSWORD: "123"
+      MYSQL_USER: "WILL"
+      MYSQL_DATABASE: "db"
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql-compose-network
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - mysql-compose-network
+
+networks: 
+  mysql-compose-network:
+    driver: bridge
+
+    # npx sequelize-cli model:generate --name favorites --attributes customerId:INTEGER,productId:INTEGER

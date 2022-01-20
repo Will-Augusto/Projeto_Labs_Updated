@@ -3,25 +3,24 @@
 Instalação
 Após clonar o repositorio..
 
-$ npm install
+$ Deve rodar o comando: npm install 
 
 ## Rodando a aplicação
-Para rodar a apliação, é necessário usar compose up no docker
-É necessário acessar a rota http://localhost:8080/ do Adminer e criar o banco de dados.
+Após isntalado o npm, é necessário usar o comando: docker-compose up -d  Para subir o banco de dados
 
-#development
-$ npm run dev
+Em seguida, para iniciar a migrate rode o comando: npx sequelize-cli db:migrate
 
-
-```bash
-## Migration
- - Para rodar a migration é preciso usar o comando npx sequelize-cli db:migrate
- - Para parar a migration poderá ser usado o comando npx sequelize-cli db:migrate:undo
+Use o comando: npm run dev - Para iniciar a aplicação.
 
 
-```bash
-## Servidor
-app.listen(3333, () => console.log('Starting server in the door 3333 🚀'))
+## Autenticação
+Na rota de customer,(Insomnia/postman) crie um usuário que vai na rota (http://localhost:3333/customer) passa o e-mail e nome do usuário.
+
+Com usuário criado, pegue o e-mail criado, e na rota de autenticação: http://localhost:3333/authenticate/ 
+Passando como Json o e-mail criado e será gerado um token
+
+O token deve ser passado como header: x-access-tokenque ai vai dar autorização para usar as outras rotas
+
 
 ## Rotas Usuarios
 
@@ -29,9 +28,7 @@ app.listen(3333, () => console.log('Starting server in the door 3333 🚀'))
 - Rota para listar usuarios routes.get('/customer'
 - Rota para deletar usuario routes.put('/customer/:id'
 - Rota para alterar usuario routes.delete('/customer/:id'
-```
 
-```bash
 ## Rotas Produtos
 
 - Rota para cadastrar produtos routes.post('/products'
@@ -39,6 +36,3 @@ app.listen(3333, () => console.log('Starting server in the door 3333 🚀'))
 - Rota para listar um produto routes.post('/authenticate'
 - Rota para deletar produto routes.delete('/products/:id'
 - Rota para alterar produto routes.get('/products/:id'
-
-#Autenticação
-- Rota para o token routes.post('/authenticate'

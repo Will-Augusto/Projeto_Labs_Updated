@@ -16,7 +16,7 @@ routes.put('/products/:id', auth.authorize, productController.update)
 routes.delete('/products/:id', auth.authorize, productController.destroy)
 routes.get('/products/:id', auth.authorize, productController.findOneProduct)
 
-routes.post('/authenticate', auth.authorize, customerController.authenticate)
+routes.post('/authenticate', customerController.authenticate)
 
 // routes.post('/productsFavorites', favoriteController.create)
 // routes.get('/productsFavorites', favoriteController.findAll)
